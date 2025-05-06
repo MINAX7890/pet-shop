@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -56,12 +56,26 @@ const AdoptionFormPage = () => {
   // Handle form submission
   const onSubmit = (data: FormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
+    
+    // Create adoption application object
+    const application = {
+      ...data,
+      petId: id,
+      petName: pet?.name,
+      submittedAt: new Date().toISOString(),
+    };
+    
+    // Simulate saving to database
     setTimeout(() => {
+      console.log("Adoption application saved to database:", application);
+      
       toast({
         title: "Application Submitted",
         description: "Thank you for applying to adopt " + (pet?.name || "this pet"),
       });
+      
+      // In a real app, this would be saved to a database
+      
       setIsSubmitting(false);
       navigate("/");
     }, 2000);
@@ -76,7 +90,7 @@ const AdoptionFormPage = () => {
           Sorry, the pet you're looking for doesn't exist or has been removed.
         </p>
         <Button asChild>
-          <a href="/pets">Browse All Pets</a>
+          <Link to="/pets">Browse All Pets</Link>
         </Button>
       </div>
     );

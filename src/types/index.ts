@@ -20,3 +20,11 @@ export type AdoptionForm = {
   petId: string;
   reason: string;
 };
+
+export type User = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};

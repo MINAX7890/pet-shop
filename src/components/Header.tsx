@@ -22,10 +22,10 @@ const Header = () => {
         </nav>
         <div className="flex items-center gap-4">
           <Button asChild variant="outline">
-            <Link to="/volunteer">Volunteer</Link>
+            <Link to="/signin">Sign In</Link>
           </Button>
           <Button asChild>
-            <Link to="/donate">Donate</Link>
+            <Link to="/signup">Sign Up</Link>
           </Button>
         </div>
       </div>

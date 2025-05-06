@@ -10,6 +10,8 @@ import PetsPage from "./pages/PetsPage";
 import PetDetailsPage from "./pages/PetDetailsPage";
 import AdoptionFormPage from "./pages/AdoptionFormPage";
 import AboutPage from "./pages/AboutPage";
+import SignupPage from "./pages/SignupPage";
+import SigninPage from "./pages/SigninPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -27,6 +29,8 @@ const App = () => (
             <Route path="pets/:id" element={<PetDetailsPage />} />
             <Route path="adopt/:id" element={<AdoptionFormPage />} />
             <Route path="about" element={<AboutPage />} />
+            <Route path="signup" element={<SignupPage />} />
+            <Route path="signin" element={<SigninPage />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
